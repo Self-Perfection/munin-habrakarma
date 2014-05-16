@@ -1,6 +1,10 @@
 #!/bin/bash
+
 plugin_filename="${0##*/}"
 username="${plugin_filename#*_}"
+#Хабр понимает только логины с подчёркиваниями вместо -
+username="${username//-/_}"
+
 if [ "$1" = "config" ]; then
     echo "graph_title KarmaGraph $username
 graph_category web 
