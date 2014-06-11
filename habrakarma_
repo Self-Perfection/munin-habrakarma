@@ -16,7 +16,7 @@ fi
 
 exec 33<>/dev/tcp/habrahabr.ru/80
 echo -e "GET /api/profile/$username/ HTTP/1.0\r\nHost: habrahabr.ru\r\n" >&33
-read -d $'\0' REPLY <&33
+read -t 5 -d $'\0' REPLY <&33
 
 for v in karma rating; do
     if [[ $REPLY =~ "<$v>"(.*)"</$v>" ]]; then
