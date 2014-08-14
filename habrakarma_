@@ -19,9 +19,6 @@ echo -e "GET /api/profile/$username/ HTTP/1.0\r\nHost: habrahabr.ru\r\n" >&33
 read -t 5 -d $'\0' REPLY <&33
 
 for v in karma rating; do
-    if [[ $REPLY =~ "<$v>"(.*)"</$v>" ]]; then
-	echo "$v.value ${BASH_REMATCH[1]}"
-    else
-	echo "$v.value U"
-    fi
+    [[ $REPLY =~ "<$v>"(.*)"</$v>" ]]
+    echo "$v.value ${BASH_REMATCH[1]:-U}"
 done
