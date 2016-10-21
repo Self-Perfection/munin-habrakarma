@@ -9,6 +9,7 @@ if [ "$1" = "config" ]; then
     echo "graph_title KarmaGraph $username
 graph_category web 
 graph_vlabel #
+graph_info Karma and rating graphs of <a href='https://habrahabr.ru/users/$username/'>$username@habrahabr.ru</a>.
 karma.label Karma
 rating.label Rating"
     exit
